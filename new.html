@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhinand Prasad | Portfolio</title>
+    <style>
+        /* --- 1. Variables & Global Styles --- */
+        :root {
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .dark-theme {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f1f5f9;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            transition: var(--transition);
+            line-height: 1.6;
+        }
+
+        /* --- 2. Navigation --- */
+        nav {
+            background: var(--card-bg);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        nav a:hover { color: var(--primary); }
+
+        /* --- 3. Header & Image Slider --- */
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+        header { text-align: center; padding: 60px 0; }
+
+        .slider-frame {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            margin: 30px auto;
+            overflow: hidden;
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .slides {
+            display: flex;
+            width: 400%;
+            height: 100%;
+            animation: autoSlide 16s infinite;
+        }
+
+        .slide { width: 25%; }
+        .slide img { width: 100%; height: 100%; object-fit: cover; }
+
+        @keyframes autoSlide {
+            0%, 20% { transform: translateX(0%); }
+            25%, 45% { transform: translateX(-25%); }
+            50%, 70% { transform: translateX(-50%); }
+            75%, 95% { transform: translateX(-75%); }
+            100% { transform: translateX(0%); }
+        }
+
+        /* --- 4. Content Sections --- */
+        section {
+            padding: 40px;
+            margin-bottom: 40px;
+            background: var(--card-bg);
+            border-radius: 24px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-tag {
+            background: var(--primary);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* --- 5. Interactive Elements --- */
+        .btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            transition: var(--transition);
+        }
+
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 15px rgba(99, 102, 241, 0.3); }
+
+        .theme-switch {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 15px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            z-index: 2000;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+        }
+
+        /* --- 6. Contact Form --- */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 500px;
+            margin: 30px auto 0;
+        }
+
+        input, textarea {
+            padding: 14px;
+            border: 2px solid transparent;
+            border-radius: 12px;
+            background: var(--bg);
+            color: var(--text);
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* --- 7. Responsiveness --- */
+        @media (max-width: 600px) {
+            .slider-frame { height: 250px; }
+            section { padding: 25px; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="theme-switch" onclick="document.body.classList.toggle('dark-theme')" aria-label="Toggle Dark Mode">🌓</button>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <header id="about">
+            <h1 style="background: linear-gradient(to right, #6366f1, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 3.5rem; margin: 0;">
+                Abhinand Prasad
+            </h1>
+            <p style="font-size: 1.2rem; font-weight: 500; opacity: 0.8;">B.Tech Computer Science Engineering | 2nd Semester</p>
+            
+            <div class="slider-frame">
+                <div class="slides">
+                     <div class="slide"><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800" alt="Work Desk"></div>
+                    <div class="slide"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800" alt="Code on Monitor"></div>
+                    <div class="slide"><img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=800" alt="Tech Setup"></div>
+                    <div class="slide"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800" alt="Laptop"></div>
+                </div>
+            </div>
+            
+            <p style="max-width: 650px; margin: 0 auto;">
+                Passionate about developing innovative software and solving logical challenges. 
+                Currently exploring the depths of Computer Science at the B.Tech level.
+            </p>
+        </header>
+
+        <section id="skills">
+            <h2 style="text-align: center; margin-bottom: 30px;">Skills & Strengths</h2>
+            <div class="grid">
+                <div>
+                    <h3>Technical Expertise</h3>
+                    <span class="skill-tag">C Programming</span>
+                    <span class="skill-tag">HTML5 / SHELL</span>
+                    <span class="skill-tag">C++ language</span>
+                    <span class="skill-tag">PYTHON language</span>
+                    <span class="skill-tag">SQL & DBMS</span>
+                </div>
+                <div>
+                    <h3>Personal Strengths</h3>
+                    <ul style="padding-left: 20px;">
+                        <li>Analytical Problem Solving</li>
+                        <li>Creativity and integrity</li>
+                        <li>efficient in complex programs</li>
+                        <li>Curiosity Learning</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 style="text-align: center;">Projects</h2>
+            <div style="border-left: 5px solid var(--primary); padding: 10px 25px;">
+                <h3 style="color: var(--primary); margin-top: 0;">🏁 Smart park OS</h3>
+                <p>A smart park os is a mordern efficient website that can be used in this generaton. Its very helpfull and can save time. We can reserve the parking before arriving our location.</p>
+                <a href="https://sprightly-souffle-f45e14.netlify.app/" target="_blank" class="btn">View Source Code</a>
+            </div>
+        </section>
+
+        <section id="contact" style="text-align: center;">
+            <h2>Contact Information</h2>
+            <p>I'd love to hear from you. Feel free to reach out!</p>
+            
+            <form class="contact-form" onsubmit="handleForm(event)">
+                <input type="text" placeholder="Name" required aria-label="Name">
+                <input type="email" placeholder="Email" required aria-label="Email">
+                <textarea rows="4" placeholder="Message" required aria-label="Message"></textarea>
+                <button type="submit" class="btn" id="submitBtn">Send Message</button>
+            </form>
+
+            <div style="margin-top: 40px; display: flex; justify-content: center; gap: 15px;">
+                <a href="https://www.linkedin.com/in/abhinand-prasad-41750537a?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" class="btn" style="background: #0077b5;">LinkedIn</a>
+                <a href="https://www.instagram.com/a_bean_nand?igsh=dnoyMWVtOTV0bTA2&utm_source=qr" target="_blank" class="btn" style="background: #e1306c;">Instagram</a>
+            </div>
+            <p style="margin-top: 20px;">Email: <a href="mailto:abhaycmanoj3@gmail.com" style="color: var(--primary); text-decoration: none; font-weight: bold;">abhiammu2210@gmail.com</a></p>
+        </section>
+    </div>
+
+    <script>
+        // Form Handling Animation
+        function handleForm(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            btn.innerText = "Sent! ✓";
+            btn.style.background = "#10b981";
+            e.target.reset();
+            setTimeout(() => {
+                btn.innerText = "Send Message";
+                btn.style.background = "";
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
